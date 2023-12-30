@@ -1,0 +1,28 @@
+Samsung SM-T875 Android 11 U2 Kernel
+
+1. Download and unzip the kernel source.
+
+2. How to Build?
+        2.1 get Toolchain(aarch64-linux-android)
+                https://bitbucket.org/UBERTC/aarch64-linux-android-4.9/downloads/?tab=downloads
+                
+        2.2 get LLVM
+        	https://github.com/xiangfeidexiaohuo/Snapdragon-LLVM/archive/refs/heads/10.0.9.zip
+                       
+3. Edit build_kernel.sh
+                edit "BUILD_CROSS_COMPILE" to right toolchain path(You downloaded).
+                edit "KERNEL_LLVM_BIN" to right toolchain path(You downloaded).
+                
+4. Edit Makefile
+                edit "CFP_CC" to right path.
+                edit "REAL_CC" to right path.
+
+ 
+5. Output files
+        - Kernel : arch/arm64/boot/Image
+        - module : drivers/*/*.ko
+
+Bonus:) How to Clean?
+        Change to OUTPUT_DIR folder
+        EX) cd  /home/user/work/kernel/out
+        $ make clean
